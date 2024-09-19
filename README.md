@@ -6,7 +6,7 @@ https://www.st.com/en/embedded-software/stsw-img040.html
 Device: Pololu VL53L8CX carrier board
 https://www.pololu.com/product/3419
 
-Host Device: Raspberry Pi 4B
+Host Device: Raspberry Pi 4B / Orange Pi 5
 
 OS: Ubuntu 22:04
 
@@ -27,6 +27,12 @@ i2cdetect -y 1 # Check device address
 # Note that the address shown in this command may not be the actual address.
 # According to the Datasheet, the sensor's default address is 0x52.
 ```
+* For some devices, there might be a failure to opening /dev/i2c-*. You may need to add the user to the i2c group.
+```
+sudo adduser <your_username> i2c #Put your device's username
+sudo reboot
+```
+
 
 ## Connections
 [Carrier Board] -> [RPi]
