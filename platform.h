@@ -16,6 +16,7 @@
 
 #include <stdint.h>
 #include <string.h>
+#include <stdio.h>
 
 /**
  * @brief Structure VL53L8CX_Platform needs to be filled by the customer,
@@ -70,7 +71,7 @@ typedef struct
 // #define VL53L8CX_DISABLE_TARGET_STATUS
 // #define VL53L8CX_DISABLE_MOTION_INDICATOR
 
-int32_t VL53L8CX_Comms_Init(VL53L8CX_Platform * p_platform);
+int32_t VL53L8CX_Comms_Init(VL53L8CX_Platform * p_platform, std::string i2c_path);
 int32_t VL53L8CX_Comms_Close(VL53L8CX_Platform * p_platform);
 int32_t write_read_multi(
 		int fd,

@@ -28,10 +28,10 @@
 #define VL53L8CX_COMMS_ERROR		-2
 #define VL53L8CX_ERROR_TIME_OUT		-3
 
-int32_t VL53L8CX_Comms_Init(VL53L8CX_Platform * p_platform)
+int32_t VL53L8CX_Comms_Init(VL53L8CX_Platform * p_platform, std::string i2c_path)
 {
-	printf("Address = %d\n", p_platform->address);
-	p_platform->fd = open("/dev/i2c-1", O_RDONLY);
+	printf("I2C Path %s at Address = %d\n", i2c_path, p_platform->address);
+	p_platform->fd = open(i2c_path.c_str(), O_RDONLY);
 	if (p_platform->fd == -1) {
 		printf("Failed to open /dev/i2c-1\n");
 		return VL53L8CX_COMMS_ERROR;

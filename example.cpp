@@ -31,7 +31,8 @@ int main(int argc, char * argv[])
 	auto p_dev = &Dev.platform;
 
     /* Initialize sensor's file descriptor */
-	int init_ret = VL53L8CX_Comms_Init(p_dev);
+	std::string i2c_addr = "/dev/i2c-5";
+	int init_ret = VL53L8CX_Comms_Init(p_dev, i2c_addr);
 	if(init_ret != 0) exit(init_ret);
 
 	/* (Optional) Reset sensor toggling PINs (see platform, not in API) */
