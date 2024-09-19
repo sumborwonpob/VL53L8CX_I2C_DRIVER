@@ -13,7 +13,7 @@ OS: Ubuntu 22:04
 Protocol: I2C
 
 ## Pre-requisite
-* Enable RPi's I2C
+* Enable RPi's I2C and install libi2c-dev
 ```
 sudo apt install raspi-config # Install config program
 sudo raspi-config # Open config
@@ -23,7 +23,7 @@ sudo raspi-config # Open config
 
 sudo apt-get install libi2c-dev # Install C library for i2c
 
-i2cdetect -y 1 # Check device address
+i2cdetect -y 1 # Replace the 1 with the I2C bus you are using.
 # Note that the address shown in this command may not be the actual address.
 # According to the Datasheet, the sensor's default address is 0x52.
 ```
